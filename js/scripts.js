@@ -2,7 +2,7 @@
 
 function translate(inputText){
   if (inputText.match(/[a-zA-Z]+/)) {
-    var leadingConsonants = inputText.match(/^(qu|[^aeiou]+)/i);
+    var leadingConsonants = inputText.match(/^(qu|[^aeiou][^aeiouy]*)/i);
     if (leadingConsonants) {
       var consonants = leadingConsonants[0];
       var newString = inputText.substring(consonants.length, inputText.length);
