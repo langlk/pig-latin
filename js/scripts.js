@@ -6,7 +6,7 @@ function translate(inputText){
   var result = "";
   if (alphaMatches) {
     alphaText = alphaMatches[0];
-    var leadingConsonants = alphaText.match(/^(qu|[^aeiou][^aeiouy]*)/i);
+    var leadingConsonants = alphaText.match(/^([^aeiou]?[^aeiouy]*qu|[^aeiou][^aeiouy]*)/i);
     if (leadingConsonants) { // has leading consonant(s)
       var consonants = leadingConsonants[0];
       var newString = alphaText.substring(consonants.length, alphaText.length);
