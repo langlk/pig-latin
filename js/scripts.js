@@ -3,8 +3,8 @@ var vowels = ['a', 'e', 'i', 'o', 'u'];
 function translate(inputText){
   if (vowels.includes(inputText.charAt(0))){
     return inputText + "way";
-  } else if (inputText.match(/[a-zA-Z]+/)){
-    return inputText + 'ay';
+  } else if (inputText.charAt(0).match(/[a-zA-Z]+/)){
+    return inputText.substring(1, inputText.length) + inputText.charAt(0) + 'ay';
   } else {
     return inputText;
   }
