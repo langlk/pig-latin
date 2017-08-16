@@ -31,6 +31,6 @@ $(document).ready(function(){
   $("#sentence").submit(function(e){
     e.preventDefault();
     var inputText = $("input#sentence-input").val();
-    console.log(translateSentence(inputText));
+    $("input#sentence-input").val(translateSentence(inputText));
   });
 });
