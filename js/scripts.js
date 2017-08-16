@@ -1,18 +1,23 @@
 // Business Logic
 
 function translate(inputText){
-  if (inputText.match(/[a-zA-Z]+/)) {
-    var leadingConsonants = inputText.match(/^(qu|[^aeiou][^aeiouy]*)/i);
-    if (leadingConsonants) {
+  var alphaMatches = inputText.match(/[a-zA-Z]+/);
+  var alphaText = "";
+  var result = "";
+  if (alphaMatches) {
+    alphaText = alphaMatches[0];
+    var leadingConsonants = alphaText.match(/^(qu|[^aeiou][^aeiouy]*)/i);
+    if (leadingConsonants) { // has leading consonant(s)
       var consonants = leadingConsonants[0];
-      var newString = inputText.substring(consonants.length, inputText.length);
-      return newString + consonants + "ay";
+      var newString = alphaText.substring(consonants.length, alphaText.length);
+      result = newString + consonants + "ay";
     } else { // first letter vowel
-      return inputText + "way";
+      result = alphaText + "way";
     }
-  } else {
-    return inputText;
   }
+  var nonAlphaText = inputText.substring(alphaText.length, inputText.length);
+  return result + nonAlphaText;
+
 }
 
 
