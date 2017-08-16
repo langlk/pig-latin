@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/scripts.js"></script>
     <title>Pig Latin Translator</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Pig Latin Translator</h1>
-      <form id="sentence">
-        <div class="form-group">
-          <label for="sentence-input">Enter a Sentence:</label>
-          <input type="text" id="sentence-input" class="form-control">
-        </div>
-        <button type="submit" class="btn">Translate</button>
-      </form>
-      <p class="translation"></p>
+    <video playsinline autoplay muted loop poster="video/bg.jpg" id="bgvid">
+      <source src="video/bg.webm" type="video/webm">
+      <source src="video/bg.mp4" type="video/mp4">
+    </video>
+    <div class="outer-wrapper">
+      <div class="wrapper">
+        <h3>Pig Latin Translator</h3>
+        <form id="sentence">
+          <div class="form-group">
+            <label for="sentence-input">Enter a Sentence:</label>
+            <input type="text" id="sentence-input" class="form-control">
+          </div>
+          <button type="submit" class="btn"><i class="fa fa-language" aria-hidden="true"></i>Translate</button>
+        </form>
+        <p class="translation"></p>
+      </div>
     </div>
   </body>
 </html>
