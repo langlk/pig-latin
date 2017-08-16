@@ -1,7 +1,7 @@
 ## Specifications
 
 * The program does nothing for an empty string.
-  * Example Input: 
+  * Example Input:
   * Example Output:
 * The program does nothing to non-alphabetical characters, since they do not contain consonants or vowels.
   * Example Input: 3
@@ -29,7 +29,7 @@
   * Example Output: esyay
   * Example Input: Psychology
   * Example Output: ychologyPsay
-* The program moves non-alphanumeric characters to the end of the Pig Latin word.
+* The program moves non-alphabet characters at end of original word to the end of the Pig Latin word.
   * Example Input: Hello!
   * Example Output: elloHay!
 * The program does the above for a string with multiple space-separated words.
