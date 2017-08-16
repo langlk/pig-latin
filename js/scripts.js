@@ -1,5 +1,9 @@
 // Business Logic
+var vowels = ['a', 'e', 'i', 'o', 'u'];
 function translate(inputText){
+  if (vowels.includes(inputText)){
+    return inputText + "way";
+  }
   return inputText;
 }
 
