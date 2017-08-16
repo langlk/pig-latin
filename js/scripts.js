@@ -1,10 +1,15 @@
 // Business Logic
 var vowels = ['a', 'e', 'i', 'o', 'u'];
 function translate(inputText){
-  if (vowels.includes(inputText.charAt(0))){
-    return inputText + "way";
-  } else if (inputText.charAt(0).match(/[a-zA-Z]+/)){
-    return inputText.substring(1, inputText.length) + inputText.charAt(0) + 'ay';
+  if (inputText.match(/[a-zA-Z]+/)) {
+    var leadingConsonants = inputText.match(/^[^aeiou]+/i);
+    if (leadingConsonants) {
+      var consonants = leadingConsonants[0];
+      var newString = inputText.substring(consonants.length, inputText.length);
+      return newString + consonants + "ay";
+    } else { // first letter vowel
+      return inputText + "way";
+    }
   } else {
     return inputText;
   }
@@ -19,3 +24,10 @@ $(document).ready(function(){
     console.log(translate(inputText));
   });
 });
+
+
+// if string is alphabetical:
+//    if string starts with vowel
+//    if string starts with consonants
+// else
+//    return string as is
