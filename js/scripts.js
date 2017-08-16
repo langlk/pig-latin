@@ -1,8 +1,8 @@
 // Business Logic
-var vowels = ['a', 'e', 'i', 'o', 'u'];
+
 function translate(inputText){
   if (inputText.match(/[a-zA-Z]+/)) {
-    var leadingConsonants = inputText.match(/^[^aeiou]+/i);
+    var leadingConsonants = inputText.match(/^(qu|[^aeiou]+)/i);
     if (leadingConsonants) {
       var consonants = leadingConsonants[0];
       var newString = inputText.substring(consonants.length, inputText.length);
@@ -24,10 +24,3 @@ $(document).ready(function(){
     console.log(translate(inputText));
   });
 });
-
-
-// if string is alphabetical:
-//    if string starts with vowel
-//    if string starts with consonants
-// else
-//    return string as is
