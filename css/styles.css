@@ -59,7 +59,8 @@ i {
 }
 
 #vidpause {
-  margin-bottom: 12px;
+  margin-bottom: 17px;
+  font-size: 12px;
 }
 
 @media screen and (max-width: 800px) {

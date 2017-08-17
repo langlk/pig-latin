@@ -6,6 +6,7 @@ function translate(inputText){
   var result = "";
   if (alphaMatches) {
     alphaText = alphaMatches[0];
+    // The regex below finds if a string starts with one or more consonants, treating y as a consonant only if it is the first letter, and grabbing any u that comes after a q that is a leading consonant.
     var leadingConsonants = alphaText.match(/^([^aeiou]?[^aeiouy]*qu|[^aeiou][^aeiouy]*)/i);
     console.log(leadingConsonants);
     if (leadingConsonants) { // has leading consonant(s)
@@ -36,7 +37,7 @@ $(document).ready(function(){
     $("input#sentence-input").val(translateSentence(inputText));
   });
 
-  // Video Background 
+  // Video Background
   var vid = document.getElementById("bgvid"),
   pauseButton = document.getElementById("vidpause");
   var paused = false;
@@ -49,11 +50,11 @@ $(document).ready(function(){
   $("#vidpause").click(function() {
     if (!paused) {
       vid.pause();
-      pauseButton.innerHTML = "Paused";
+      pauseButton.innerHTML = "Background Paused";
       paused = true;
     } else {
       vid.play();
-      pauseButton.innerHTML = "Pause";
+      pauseButton.innerHTML = "Pause Background";
       paused = false;
     }
   });
