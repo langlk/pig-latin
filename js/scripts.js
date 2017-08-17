@@ -7,6 +7,7 @@ function translate(inputText){
   if (alphaMatches) {
     alphaText = alphaMatches[0];
     var leadingConsonants = alphaText.match(/^([^aeiou]?[^aeiouy]*qu|[^aeiou][^aeiouy]*)/i);
+    console.log(leadingConsonants);
     if (leadingConsonants) { // has leading consonant(s)
       var consonants = leadingConsonants[0];
       var newString = alphaText.substring(consonants.length, alphaText.length);
@@ -27,10 +28,33 @@ function translateSentence(inputText) {
   return outputArray.join(" ");
 }
 
+// UI Logic
 $(document).ready(function(){
   $("#sentence").submit(function(e){
     e.preventDefault();
     var inputText = $("input#sentence-input").val();
     $("input#sentence-input").val(translateSentence(inputText));
+  });
+
+  // Video Background 
+  var vid = document.getElementById("bgvid"),
+  pauseButton = document.getElementById("vidpause");
+  var paused = false;
+  if (window.matchMedia('(prefers-reduced-motion)').matches) {
+    vid.removeAttribute("autoplay");
+    vid.pause();
+    pauseButton.innerHTML = "Paused";
+  }
+
+  $("#vidpause").click(function() {
+    if (!paused) {
+      vid.pause();
+      pauseButton.innerHTML = "Paused";
+      paused = true;
+    } else {
+      vid.play();
+      pauseButton.innerHTML = "Pause";
+      paused = false;
+    }
   });
 });
