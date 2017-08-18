@@ -1,6 +1,6 @@
 # Pig Latin Translator
 
-#### _Epicodus Practice in JavaScript, HTML, and CSS, August 11, 2017_
+#### _Epicodus Practice in JavaScript, HTML, and CSS, August 16, 2017_
 
 #### By Kelsey Langlois, Luciano Oliveira
 
