@@ -1,8 +1,8 @@
 // Business Logic
 
 function translate(inputText){
-  var leadingNonAlpha = inputText.match(/^[^a-zA-Z]*/)[0];
-  var alphaMatches = inputText.match(/[a-zA-Z]+.*[a-zA-Z]+/);
+  var leadingNonAlpha = inputText.match(/^[^a-zA-Z]*/)[0]; // keep leading non-alpha at front
+  var alphaMatches = inputText.match(/[a-zA-Z]+(.*[a-zA-Z]+)?/); // ignore apostrophes
   var alphaText = "";
   var result = "";
   if (alphaMatches) {
