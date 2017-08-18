@@ -1,14 +1,14 @@
 // Business Logic
 
 function translate(inputText){
-  var alphaMatches = inputText.match(/[a-zA-Z]+/);
+  var leadingNonAlpha = inputText.match(/^[^a-zA-Z]*/)[0];
+  var alphaMatches = inputText.match(/[a-zA-Z]+.*[a-zA-Z]+/);
   var alphaText = "";
   var result = "";
   if (alphaMatches) {
     alphaText = alphaMatches[0];
     // The regex below finds if a string starts with one or more consonants, treating y as a consonant only if it is the first letter, and grabbing any u that comes after a q that is a leading consonant.
     var leadingConsonants = alphaText.match(/^([^aeiou]?[^aeiouy]*qu|[^aeiou][^aeiouy]*)/i);
-    console.log(leadingConsonants);
     if (leadingConsonants) { // has leading consonant(s)
       var consonants = leadingConsonants[0];
       var newString = alphaText.substring(consonants.length, alphaText.length);
@@ -17,8 +17,8 @@ function translate(inputText){
       result = alphaText + "way";
     }
   }
-  var nonAlphaText = inputText.substring(alphaText.length, inputText.length);
-  return result + nonAlphaText;
+  var endNonAlpha = inputText.substring(leadingNonAlpha.length + alphaText.length, inputText.length);
+  return leadingNonAlpha + result + endNonAlpha;
 }
 
 function translateSentence(inputText) {
